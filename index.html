@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A-frame</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="texture" src="./img/texture.jpg" alt="texture" />
+      </a-assets>
+      <a-box
+        color="#03a9fa"
+        with="2"
+        heght="1"
+        depth="1"
+        position="0 8 0"
+        rotate="45 45 45"
+        scale="1 2.5 1"
+        src="#texture"
+      >
+        <a-animation
+          attribute="rotation"
+          repeat="indenfinite"
+          to="0 360 0"
+        ></a-animation>
+      </a-box>
+      <a-camera position="0 7 5">
+        <a-cursor color="#ff0000"></a-cursor>
+      </a-camera>
+    </a-scene>
+
+    <script>
+      var box = document.querySelector("a-box");
+      box.addEventListener("mouseenter", function (e) {
+        box.setAttribute("scale", {
+          x: 0.5,
+          y: 2,
+          z: 5.9,
+        });
+      });
+    </script>
+  </body>
+</html>
